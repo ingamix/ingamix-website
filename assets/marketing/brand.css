@@ -1,0 +1,314 @@
+/* ============================================================
+   INGAMIX — colors_and_type.css
+   Base tokens + semantic styles for the Ingamix brand.
+   Fonts are loaded from Google Fonts (Roboto + Michroma).
+   ============================================================ */
+
+/* Roboto Mono still from Google Fonts; Roboto + Michroma served locally. */
+500&display=swap');
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-VariableFont_wdth_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Roboto';
+  src: url('fonts/Roboto-Italic-VariableFont_wdth_wght.ttf') format('truetype-variations');
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Michroma';
+  src: url('fonts/Michroma-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* ---------- CORE PALETTE (from brand guide) ---------- */
+  --pulse-blue:       #00AAFF;   /* primary brand color */
+  --core-black:       #0D0D0D;   /* primary dark */
+  --sideline-white:   #FFFFFF;   /* primary light */
+
+  /* ---------- EXTENDED PALETTE (derived, for UI needs) ---------- */
+  /* Pulse Blue scale */
+  --pulse-blue-100:   #E0F5FF;
+  --pulse-blue-200:   #B8E9FF;
+  --pulse-blue-300:   #7FD6FF;
+  --pulse-blue-400:   #33BEFF;
+  --pulse-blue-500:   #00AAFF;   /* = --pulse-blue */
+  --pulse-blue-600:   #0088CC;
+  --pulse-blue-700:   #006699;
+  --pulse-blue-800:   #004466;
+
+  /* Neutral scale — warm-black anchored */
+  --black-950:        #0D0D0D;   /* = --core-black */
+  --black-900:        #141414;
+  --black-800:        #1C1C1E;
+  --black-700:        #242428;
+  --black-600:        #2E2E34;
+  --gray-500:         #56565E;
+  --gray-400:         #7A7A82;
+  --gray-300:         #A8A8AE;
+  --gray-200:         #D5D5D9;
+  --gray-100:         #ECECEF;
+  --gray-50:          #F6F6F8;
+  --white:            #FFFFFF;
+
+  /* ---------- SEMANTIC / STATUS ---------- */
+  --success:          #22C55E;   /* leaderboard gains, correct taps */
+  --warning:          #FFB020;   /* timer warning */
+  --danger:           #FF3B4E;   /* missed tap, game over */
+  --live:             #FF2E4D;   /* "LIVE NOW" pulse */
+
+  /* ---------- FOREGROUND / BACKGROUND (light mode default) ---------- */
+  --bg-1:             var(--sideline-white);
+  --bg-2:             var(--gray-50);
+  --bg-3:             var(--gray-100);
+  --fg-1:             var(--core-black);
+  --fg-2:             var(--gray-500);
+  --fg-3:             var(--gray-400);
+  --fg-accent:        var(--pulse-blue);
+  --border:           var(--gray-200);
+  --border-strong:    var(--gray-300);
+
+  /* ---------- TYPEFACES ---------- */
+  --font-body:        'Roboto', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display:     'Michroma', 'Roboto', system-ui, sans-serif;
+  --font-mono:        'Roboto Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+  /* ---------- TYPE SCALE ----------
+     Roboto for body, Michroma for display / tabular / timer / "TAP ON" moments.
+     Michroma is wide — reserve for short strings, and add letter-spacing sparingly
+     (it has baked-in tracking already). */
+  --fs-display-xl:    72px;
+  --fs-display-lg:    56px;
+  --fs-display-md:    40px;
+  --fs-h1:            44px;
+  --fs-h2:            32px;
+  --fs-h3:            24px;
+  --fs-h4:            20px;
+  --fs-body-lg:       18px;
+  --fs-body:          16px;
+  --fs-body-sm:       14px;
+  --fs-caption:       12px;
+  --fs-micro:         11px;
+
+  --lh-tight:         1.05; /* @kind other */
+  --lh-snug:          1.2; /* @kind other */
+  --lh-normal:        1.5; /* @kind other */
+  --lh-loose:         1.65; /* @kind other */
+
+  --ls-display:       0.02em;  /* Michroma already spaced; add barely */
+  --ls-eyebrow:       0.18em;  /* label / eyebrow in Roboto uppercase */
+  --ls-label:         0.04em;
+  --ls-tight:         -0.01em;
+
+  /* ---------- RADII ---------- */
+  --r-xs:             4px;
+  --r-sm:             8px;
+  --r-md:             12px;
+  --r-lg:             16px;
+  --r-xl:             24px;
+  --r-2xl:            32px;
+  --r-pill:           999px;
+
+  /* ---------- SPACING (4-px base) ---------- */
+  --sp-0:             0; /* @kind spacing */
+  --sp-1:             4px;
+  --sp-2:             8px;
+  --sp-3:             12px;
+  --sp-4:             16px;
+  --sp-5:             20px;
+  --sp-6:             24px;
+  --sp-8:             32px;
+  --sp-10:            40px;
+  --sp-12:            48px;
+  --sp-16:            64px;
+  --sp-20:            80px;
+  --sp-24:            96px;
+
+  /* ---------- ELEVATION ----------
+     Clean, digital shadows — never heavy or atmospheric.
+     In dark game screens prefer the blue-glow variants. */
+  --shadow-1:         0 1px 2px rgba(13,13,13,0.06), 0 1px 1px rgba(13,13,13,0.04);
+  --shadow-2:         0 4px 12px rgba(13,13,13,0.08), 0 2px 4px rgba(13,13,13,0.04);
+  --shadow-3:         0 12px 32px rgba(13,13,13,0.12), 0 4px 8px rgba(13,13,13,0.06);
+  --shadow-4:         0 24px 60px rgba(13,13,13,0.18), 0 8px 16px rgba(13,13,13,0.08);
+
+  --glow-pulse:       0 0 0 4px rgba(0,170,255,0.18), 0 8px 24px rgba(0,170,255,0.35);
+  --glow-pulse-sm:    0 0 0 2px rgba(0,170,255,0.22), 0 2px 10px rgba(0,170,255,0.30);
+
+  /* ---------- MOTION ---------- */
+  --ease-out:         cubic-bezier(0.2, 0.8, 0.2, 1); /* @kind other */
+  --ease-in-out:      cubic-bezier(0.65, 0, 0.35, 1); /* @kind other */
+  --ease-snap:        cubic-bezier(0.34, 1.56, 0.64, 1); /* @kind other */
+  --dur-fast:         120ms; /* @kind other */
+  --dur-base:         220ms; /* @kind other */
+  --dur-slow:         360ms; /* @kind other */
+
+  /* ---------- LAYOUT ---------- */
+  --container:        1200px;
+  --container-wide:   1440px;
+  --gutter:           24px;
+  --hairline:         1px;
+}
+
+/* =============== DARK MODE (game surface default) =============== */
+.theme-dark,
+[data-theme="dark"] {
+  --bg-1:             var(--core-black);
+  --bg-2:             var(--black-900);
+  --bg-3:             var(--black-800);
+  --fg-1:             var(--sideline-white);
+  --fg-2:             var(--gray-300);
+  --fg-3:             var(--gray-400);
+  --border:           var(--black-700);
+  --border-strong:    var(--black-600);
+  --shadow-1:         0 1px 2px rgba(0,0,0,0.5);
+  --shadow-2:         0 4px 12px rgba(0,0,0,0.5);
+  --shadow-3:         0 12px 32px rgba(0,0,0,0.55);
+  --shadow-4:         0 24px 60px rgba(0,0,0,0.6);
+}
+
+/* =============== BASE RESET =============== */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-normal);
+  color: var(--fg-1);
+  background: var(--bg-1);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* =============== SEMANTIC TYPE STYLES =============== */
+.display-xl,
+.display-lg,
+.display-md {
+  font-family: var(--font-display);
+  font-weight: 400;           /* Michroma only ships 400 */
+  letter-spacing: var(--ls-display);
+  line-height: var(--lh-tight);
+  text-transform: uppercase;
+}
+.display-xl { font-size: var(--fs-display-xl); }
+.display-lg { font-size: var(--fs-display-lg); }
+.display-md { font-size: var(--fs-display-md); }
+
+h1, .h1 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h1);
+  font-weight: 900;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--ls-tight);
+  margin: 0 0 var(--sp-4);
+}
+h2, .h2 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h2);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+  letter-spacing: var(--ls-tight);
+  margin: 0 0 var(--sp-3);
+}
+h3, .h3 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h3);
+  font-weight: 700;
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--sp-2);
+}
+h4, .h4 {
+  font-family: var(--font-body);
+  font-size: var(--fs-h4);
+  font-weight: 500;
+  line-height: var(--lh-snug);
+  margin: 0 0 var(--sp-2);
+}
+
+p, .p {
+  font-size: var(--fs-body);
+  line-height: var(--lh-loose);
+  color: var(--fg-1);
+  margin: 0 0 var(--sp-4);
+}
+.lead {
+  font-size: var(--fs-body-lg);
+  line-height: var(--lh-normal);
+  color: var(--fg-2);
+}
+.small  { font-size: var(--fs-body-sm); }
+.caption{ font-size: var(--fs-caption); color: var(--fg-2); }
+.micro  { font-size: var(--fs-micro); color: var(--fg-2); }
+
+/* Eyebrow / label — Roboto uppercase with loose tracking. Never Michroma. */
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: var(--fs-caption);
+  font-weight: 700;
+  letter-spacing: var(--ls-eyebrow);
+  text-transform: uppercase;
+  color: var(--fg-accent);
+}
+.label {
+  font-family: var(--font-body);
+  font-size: var(--fs-body-sm);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--fg-2);
+}
+
+/* Tabular / HUD / timer — always Michroma, tabular numbers */
+.hud, .tabular {
+  font-family: var(--font-display);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+code, .code {
+  font-family: var(--font-mono);
+  font-size: 0.92em;
+  background: var(--bg-3);
+  padding: 0.1em 0.4em;
+  border-radius: var(--r-xs);
+}
+
+a {
+  color: var(--pulse-blue);
+  text-decoration: none;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+a:hover { color: var(--pulse-blue-600); }
+
+hr {
+  border: 0;
+  border-top: var(--hairline) solid var(--border);
+  margin: var(--sp-8) 0;
+}
+
+/* =============== UTILITY =============== */
+.fg-accent { color: var(--fg-accent); }
+.fg-muted  { color: var(--fg-2); }
+.fg-faint  { color: var(--fg-3); }
+.bg-accent { background: var(--pulse-blue); color: var(--sideline-white); }
+.bg-dark   { background: var(--core-black); color: var(--sideline-white); }
+
+.uppercase { text-transform: uppercase; }
+.tracking-display { letter-spacing: var(--ls-display); }
+.tracking-eyebrow { letter-spacing: var(--ls-eyebrow); }
